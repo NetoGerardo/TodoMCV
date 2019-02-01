@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:head>
+
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" />
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	
+	<h:outputStylesheet name="css/style.css" />
+
+</h:head>
+
+<h:body style="background-color:#f5f5f5">
+
+
+	<h:form id="form">
+
+		<br />
+		<br />
+		<br />
+
+		<div align="center">
+
+			<h1 style="width: 100%;	font-size: 100px;	text-align: center;	color: rgba(175, 47, 47, 0.15);	min-width: 230px;	max-width: 550px;">todos</h1>
+
+			<p:button icon="fa-arrow-down" title="Icon Only" />
+
+			<p:inputText id="input" size="42" value="#{clientController.issue}"
+				onkeypress="if (event.keyCode ==  13) {document.getElementById('formid:saveid').click(); return false; }" />
+
+			<p:commandButton update="table, input, watermark"
+				action="#{clientController.newtodo}" id="saveid"
+				style="display: none" />
+
+
+			<p:watermark for="input" value="What needs to be done?"
+				id="watermark" />
+
+			<p:dataTable styleClass="myTable" id="table" var="todo"
+				value="#{clientController.todos}" style="width:38%;">
+
+				<p:column>
+
+					<div class="op1">
+						<p:selectBooleanCheckbox value="#{todo.completed}">
+							<p:ajax listener="#{clientController.changeStatus(todo)}"
+								update="table, form:panel" />
+						</p:selectBooleanCheckbox>
+					</div>
+
+					<div class="op2">
+						<p:fragment rendered="#{!todo.completed}">
+							<div>
+								<p:inplace label="#{todo.issue}" event="dblclick" editor="true">
+									<p:ajax update="table" event="save"
+										listener="#{clientController.update(todo)}" />
+									<p:inputText value="#{todo.issue}" required="true" label="text" />
+								</p:inplace>
+							</div>
+						</p:fragment>
+
+						<p:fragment rendered="#{todo.completed}">
+							<div class="mydiv">
+								<p:inplace label="#{todo.issue}" event="dblclick" editor="true">
+									<p:ajax update="table" event="save"
+										listener="#{clientController.update(todo)}" />
+									<p:inputText value="#{todo.issue}" required="true" label="text" />
+								</p:inplace>
+							</div>
+						</p:fragment>
+					</div>
+
+					<div class="op3">
+						<p:commandButton icon="fas fa-trash" action="#{clientController.delete(todo)}" update="table, form:panel"/>
+					</div>
+
+				</p:column>
+
+
+			</p:dataTable>
+			<p:panelGrid id="panel" columns="5" style="font-size:12px;"
+				styleClass="ui-noborder">
+
+				<p:outputLabel rendered="#{clientController.contActives > 1 }"
+					value="#{clientController.contActives} items left" />
+				<p:outputLabel rendered="#{clientController.contActives == 1 }"
+					value="#{clientController.contActives} item left" />
+
+				<p:commandButton action="#{clientController.findAll}"
+					style="background-color: #fff; border-color: #ffcccc;" value="all"
+					update="form:table" />
+
+
+				<p:commandButton action="#{clientController.findActive}"
+					style="background-color: #fff; border-color: #ffcccc;"
+					value="active" update="form:table" />
+
+				<p:commandButton action="#{clientController.findCompleted}"
+					style="background-color: #fff; border-color: #ffcccc;"
+					value="completed" update="form:table" />
+
+				<p:commandButton action="#{clientController.deleteAll}"
+					style="background-color: #fff; border-color: #ffcccc;"
+					value="Clear compelted" update="form:table" />
+
+			</p:panelGrid>
+		</div>
+
+	</h:form>
+
+</h:body>
+
+</html>

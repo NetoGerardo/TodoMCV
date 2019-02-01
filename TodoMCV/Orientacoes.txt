@@ -1,0 +1,5 @@
+Este projeto trata-se de um CRUD para "todos", ou seja, tarefas a serem feitas, seguindo o exemplo do site http://todomvc.com/examples/angularjs/#/. A implementação foi feita utilizando JSF, Primefaces, Bootstrap 4,  Spring Boot 2.0, Spring MVC, JPA, Hibernate e banco de dados Postgresql. Esse projeto apresenta todas as funcionalidades presentes no exemplo do site todomcv, são elas: cadastro de tarefas (em um campo de texto com placeholder que é submetido diretamente no botão enter, sem um botão), edição dessas tarefas (clicando duas vezes nelas), exclusão das tarefas clicando no botão com o ícone de lixeira, além das opções de filtro "All" que mostra todas as tarefas, "Active" que mostra somente as tarefas pendentes, "Completed" que mostra somente as tarefas marcadas como concluídas, e a opção "Clear completed" que deleta todas as atividades concluídas.
+
+Para executar este projeto em ambiente local, é necessário um banco de dados Postgresql rodando na porta 5432. É preciso criar um banco chamado "todos_db" com um usuário "postgres" de senha "postgres".
+
+Para executar o projeto no eclipse, basta rodar a classe chamada "TodoMcvApplication".

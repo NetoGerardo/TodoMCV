@@ -1,0 +1,87 @@
+@charset "ISO-8859-1";
+
+*[id*="test"] {
+	color: #fff;
+	background-color: #28a745;
+	border-color: #28a745;
+}
+
+*[id*="check"] {
+	cursor: pointer !important;
+	margin: 1px 0 0 1px !important;
+	outline: medium none !important;
+	z-index: 1 !important;
+	outline: 1px solid red -moz-appearance: none;
+	display: inline-block !important;
+	vertical-align: top !important;
+	width: 30px;
+	heigth: 30px;
+	background-position-x: -66px;
+	background-position-y: -147px;
+}
+
+*[id*="text"] {
+	font-size: 25px;
+}
+
+h1 {
+	width: 100%;
+	font-size: 100px;
+	text-align: center;
+	color: rgba(175, 47, 47, 0.15);
+	min-width: 230px;
+	max-width: 550px;
+}
+
+.myDiv {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+*[id*="table"] {
+	font-size: 30px;
+	word-wrap: break-word;
+}
+
+*[styleClass*="no-background"] {
+	background-color: #fff;
+	border-color: #28a745;
+}
+
+.ui-widget {
+	font-size: 25px;
+}
+
+.myTable {
+	font-size: 25px;
+	word-wrap: break-word;
+}
+
+.myTable thead {
+	display: none;
+}
+
+div.op1 {
+	margin-top: 1%;
+	width: 5%;
+	display: inline-block;
+	text-align: center;
+}
+
+div.op3 {
+	margin-top: 1%;
+	width: 5%;
+	display: inline-block;
+	text-align: right;
+	font-size: 15px;
+}
+
+div.op2 {
+	font-size: 15px;
+	width: 80%;
+	display: inline-block;
+	margin-left: -10px;
+	font-size: 3vw;
+	text-align: left;
+	float: right;
+}
