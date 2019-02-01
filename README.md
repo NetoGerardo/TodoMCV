@@ -6,7 +6,7 @@ http://todomvc.com/examples/angularjs/#/.
 Este projeto é uma implementação em JAVA + Spring MCV + Jpa + Hibernate + BootStrap 4 + Primefaces do exemplo disponível no site
 http://todomvc.com/examples/angularjs/#/.
 
-* JAVA
+* JAVA *
 *Spring Boot
 *Spring MVC
 *JPA + Hibernate
